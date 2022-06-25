@@ -27,7 +27,7 @@ function game(playerMove, computerMove) {
     if (playerMove===computerMove) {
             return "It's a Tie!";
     }
-      if (playerMove==="scissors" && computerMove==="paper" ||
+    if (playerMove==="scissors" && computerMove==="paper" ||
       playerMove==="paper" && computerMove==="rock"||
       playerMove==="rock" && computerMove==="scissors") {
             return "You win! ";
