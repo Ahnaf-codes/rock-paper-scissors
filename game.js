@@ -34,8 +34,8 @@ function game(playerMove, computerMove) {
 		return "You win! ";
 	}
 }
-const computerChoice = computerPlay();
-const playerChoice = playerPlay();
-console.log(game(playerChoice, computerChoice) + "Computer Chose " + computerChoice);
+// const computerChoice = computerPlay();
+// const playerChoice = playerPlay();
+// console.log(game(playerChoice, computerChoice) + "Computer Chose " + computerChoice);
 
 //Game Logic End
