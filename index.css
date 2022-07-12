@@ -1,0 +1,39 @@
+:root {
+	font-size: 62.5%;
+}
+
+* {
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	text-transform: capitalize;
+	position: relative;
+	box-sizing: border-box;
+	overflow-x: hidden;
+	min-height: 100vh;
+}
+
+#wrapper {
+	overflow: auto;
+}
+
+.flex {
+	display: flex;
+}
+
+header {
+	text-align: center;
+	margin: 1rem;
+}
+
+#container {
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+img {
+	max-width: 10rem;
+}
