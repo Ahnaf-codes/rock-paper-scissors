@@ -19,8 +19,9 @@
 				<p id="subtitle">Defeat The Bot In An Epic Duel!</p>
 			</header>
 			<div id="container" class="flex">
-				<h2 id="choice-header">Choose Your Weapon!</h2>
 				<main>
+					<h2 id="choice-header">Choose Your Weapon!</h2>
+
 					<div id="choice-container" class="flex">
 						<div class="choice">
 							<img src="assets/rock.png" alt="Rock" />
@@ -35,9 +36,16 @@
 						</div>
 					</div>
 
+					<h2 id="bot-header">Bot's Weapon</h2>
+
 					<div id="bot-container" class="flex">
 						<div id="bot-choice">
 							<img src="assets/bot.png" alt="" />
+						</div>
+						<div id="result-area">
+							<p>Round: <span id="round">0</span></p>
+							<p>Your Score: <span id="player-score">0</span> | Bot Score: <span id="bot-score">0</span></p>
+							<p>Result: <span id="result">Unknown</span></p>
 						</div>
 					</div>
 				</main>
