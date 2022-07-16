@@ -40,6 +40,9 @@ h6 {
 	display: flex;
 }
 
+.btn {
+}
+
 header {
 	text-align: center;
 	margin: 1rem;
@@ -125,6 +128,35 @@ img {
 .result-text {
 	font-size: 2.5rem;
 	text-align: left;
+}
+
+/* Popup Styling */
+#popup-bg {
+	/* visibility: hidden; */
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0, 0, 0, 0.5);
+	/* transform: scale(0.8); */
+	transition: all 0.5s;
+}
+
+#popup {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	background-color: var(--bg);
+	padding: 2vw;
+	width: 50vw;
+	border: 5px var(--border) solid;
+	border-radius: 10px;
+}
+
+#popup-text {
+	font-size: 3rem;
 }
 
 /* Media Queries */
