@@ -114,7 +114,7 @@ img {
 	justify-content: center;
 	align-items: center;
 	padding: 2vw;
-	/* padding-left: 0; */
+	padding-left: 0;
 	border-right: var(--border) 5px solid;
 }
 
@@ -147,7 +147,9 @@ img {
 		border-bottom: var(--border) 5px solid;
 		border-right: 0;
 		width: 100%;
+		padding-left: 2vw;
 	}
+
 	#result-area {
 		margin-left: 0;
 		margin: 2vw;
