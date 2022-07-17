@@ -41,6 +41,18 @@ h6 {
 }
 
 .btn {
+	padding: 1vw;
+	margin: 1vw;
+	color: var(--font-color);
+	font-size: 2rem;
+	border: none;
+	border-radius: 10px;
+	background-color: var(--border);
+}
+
+.btn:hover {
+	color: var(--border);
+	background-color: var(--font-color);
 }
 
 header {
@@ -144,6 +156,8 @@ img {
 }
 
 #popup {
+	flex-direction: column;
+	align-items: center;
 	position: absolute;
 	top: 50%;
 	left: 50%;
@@ -151,6 +165,7 @@ img {
 	background-color: var(--bg);
 	padding: 2vw;
 	width: 50vw;
+	max-width: 600px;
 	border: 5px var(--border) solid;
 	border-radius: 10px;
 }
@@ -161,7 +176,12 @@ img {
 
 #popup-btn-container {
 	align-items: center;
-	justify-content: center;
+	justify-content: space-between;
+	width: 70%;
+}
+
+#popup-btn-container > * {
+	flex: 1;
 }
 
 /* Media Queries */
@@ -194,5 +214,13 @@ img {
 
 	.result-text {
 		text-align: center;
+	}
+
+	#popup {
+		width: 65%;
+	}
+
+	#popup-btn-container {
+		width: 90%;
 	}
 }
