@@ -1,5 +1,12 @@
 "use strict";
 
+const rock = document.getElementById("rock");
+const paper = document.getElementById("paper");
+const scissors = document.getElementById("scissors");
+const playerArea = document.getElementById("choice-container");
+const weapons = document.querySelectorAll(".choice-img");
+const botChoice = botPlay();
+const roundText = document.getElementById("round");
 //Game Logic
 
 function botPlay() {
@@ -7,13 +14,11 @@ function botPlay() {
 	const move = moveset[(Math.random() * moveset.length) | 0];
 	const botIcon = document.getElementById("bot-icon");
 
-	if (move == "rock") {
+	if (move === "rock") {
 		botIcon.src = "/assets/rock.png";
-	}
-	if (move == "paper") {
+	} else if (move === "paper") {
 		botIcon.src = "/assets/paper.png";
-	}
-	if (move == "rock") {
+	} else if (move === "scissors") {
 		botIcon.src = "/assets/scissors.png";
 	}
 	return move;
@@ -25,52 +30,59 @@ function playerPlay() {
 }
 function game(playerMove, botMove) {
 	const resultText = document.getElementById("result");
-	const playerScore = document.getElementById("player-score");
-	const botScore = document.getElementById("bot-score");
+	let playerScore = 0;
+	let botScore = 0;
+	const score = document.getElementById("score");
 
 	if (
 		(playerMove === "paper" && botMove === "scissors") ||
 		(playerMove === "scissors" && botMove === "rock") ||
 		(playerMove === "rock" && botMove === "paper")
 	) {
-		return "You Lose!";
-	}
-	if (
-		playerMove !== "paper" &&
-		playerMove !== "scissors" &&
-		playerMove !== "rock"
-	) {
-		return "Choose A Proper Answer! ";
+		resultText.textContent = "You Lose!";
+		botScore++;
 	}
 	if (playerMove === botMove) {
-		return "It's a Tie!";
+		resultText.textContent = "It's a Tie!";
 	}
 	if (
 		(playerMove === "scissors" && botMove === "paper") ||
 		(playerMove === "paper" && botMove === "rock") ||
 		(playerMove === "rock" && botMove === "scissors")
 	) {
-		return "You win!";
+		resultText.textContent = "You win!";
+		playerScore++;
 	}
-}
-// const botChoice = botPlay();
-// const playerChoice = playerPlay();
-// console.log(
-// 	game(playerChoice, botChoice) + "bot Chose " + botChoice
-// );
 
+	score.textContent = `Your Score: ${playerScore} | Bot Score: ${botScore}`;
+	return [playerScore, botScore];
+}
+
+function countRound() {
+	let round = 0;
+	round++;
+	roundText.textContent = `${round}`;
+	return round;
+}
 //Game Logic End
 
 //UI Start
-const rock = document.getElementById("rock");
-const paper = document.getElementById("paper");
-const scissors = document.getElementById("scissors");
-const playerArea = document.getElementById("choice-container");
-const botChoice = botPlay;
-let playerChoice = "";
 
-function selectId(event) {
-	return (playerChoice = event.target.id); // Assigns the id of weapon clicked to playerChoice
+function playGame() {
+	let playerChoice = "";
+
+	weapons.forEach((weapon) => {
+		weapon.addEventListener("click", () => {
+			if (weapon.classList.contains("rock")) {
+				playerChoice = "rock";
+			} else if (weapon.classList.contains("paper")) {
+				playerChoice = "paper";
+			} else if (weapon.classList.contains("scissors")) {
+				playerChoice = "scissors";
+			}
+			countRound();
+			game(playerChoice, botPlay());
+		});
+	});
 }
-playerArea.addEventListener("click", selectId);
-playerArea.addEventListener("click", botChoice);
+playGame();
