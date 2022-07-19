@@ -1,4 +1,5 @@
 "use strict";
+//Variables
 
 const rock = document.getElementById("rock");
 const paper = document.getElementById("paper");
@@ -7,7 +8,8 @@ const playerArea = document.getElementById("choice-container");
 const weapons = document.querySelectorAll(".choice-img");
 const botChoice = botPlay();
 const roundText = document.getElementById("round");
-//Game Logic
+
+//Logic and Dom Stuff
 
 function botPlay() {
 	const moveset = ["rock", "paper", "scissors"];
@@ -64,9 +66,6 @@ function countRound() {
 	roundText.textContent = `${round}`;
 	return round;
 }
-//Game Logic End
-
-//UI Start
 
 function playGame() {
 	let playerChoice = "";
