@@ -2,7 +2,7 @@
 
 //Game Logic
 
-function computerPlay() {
+function botPlay() {
 	const moveset = ["rock", "paper", "scissors"];
 	const move = moveset[(Math.random() * moveset.length) | 0];
 	const botIcon = document.getElementById("bot-icon");
@@ -23,13 +23,17 @@ function playerPlay() {
 	const move = question.toLowerCase();
 	return move;
 }
-function game(playerMove, computerMove) {
+function game(playerMove, botMove) {
+	const resultText = document.getElementById("result");
+	const playerScore = document.getElementById("player-score");
+	const botScore = document.getElementById("bot-score");
+
 	if (
-		(playerMove === "paper" && computerMove === "scissors") ||
-		(playerMove === "scissors" && computerMove === "rock") ||
-		(playerMove === "rock" && computerMove === "paper")
+		(playerMove === "paper" && botMove === "scissors") ||
+		(playerMove === "scissors" && botMove === "rock") ||
+		(playerMove === "rock" && botMove === "paper")
 	) {
-		return "You Lose! ";
+		return "You Lose!";
 	}
 	if (
 		playerMove !== "paper" &&
@@ -38,21 +42,21 @@ function game(playerMove, computerMove) {
 	) {
 		return "Choose A Proper Answer! ";
 	}
-	if (playerMove === computerMove) {
+	if (playerMove === botMove) {
 		return "It's a Tie!";
 	}
 	if (
-		(playerMove === "scissors" && computerMove === "paper") ||
-		(playerMove === "paper" && computerMove === "rock") ||
-		(playerMove === "rock" && computerMove === "scissors")
+		(playerMove === "scissors" && botMove === "paper") ||
+		(playerMove === "paper" && botMove === "rock") ||
+		(playerMove === "rock" && botMove === "scissors")
 	) {
 		return "You win!";
 	}
 }
-// const computerChoice = computerPlay();
+// const botChoice = botPlay();
 // const playerChoice = playerPlay();
 // console.log(
-// 	game(playerChoice, computerChoice) + "Computer Chose " + computerChoice
+// 	game(playerChoice, botChoice) + "bot Chose " + botChoice
 // );
 
 //Game Logic End
@@ -62,11 +66,11 @@ const rock = document.getElementById("rock");
 const paper = document.getElementById("paper");
 const scissors = document.getElementById("scissors");
 const playerArea = document.getElementById("choice-container");
-const computerChoice = computerPlay;
+const botChoice = botPlay;
 let playerChoice = "";
 
 function selectId(event) {
 	return (playerChoice = event.target.id); // Assigns the id of weapon clicked to playerChoice
 }
 playerArea.addEventListener("click", selectId);
-playerArea.addEventListener("click", computerChoice);
+playerArea.addEventListener("click", botChoice);
