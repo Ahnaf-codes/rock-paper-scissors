@@ -5,6 +5,17 @@
 function computerPlay() {
 	const moveset = ["rock", "paper", "scissors"];
 	const move = moveset[(Math.random() * moveset.length) | 0];
+	const botIcon = document.getElementById("bot-icon");
+
+	if (move == "rock") {
+		botIcon.src = "/assets/rock.png";
+	}
+	if (move == "paper") {
+		botIcon.src = "/assets/paper.png";
+	}
+	if (move == "rock") {
+		botIcon.src = "/assets/scissors.png";
+	}
 	return move;
 }
 function playerPlay() {
@@ -40,7 +51,9 @@ function game(playerMove, computerMove) {
 }
 // const computerChoice = computerPlay();
 // const playerChoice = playerPlay();
-// console.log(game(playerChoice, computerChoice) + "Computer Chose " + computerChoice);
+// console.log(
+// 	game(playerChoice, computerChoice) + "Computer Chose " + computerChoice
+// );
 
 //Game Logic End
 
@@ -49,10 +62,11 @@ const rock = document.getElementById("rock");
 const paper = document.getElementById("paper");
 const scissors = document.getElementById("scissors");
 const playerArea = document.getElementById("choice-container");
+const computerChoice = computerPlay;
 let playerChoice = "";
 
 function selectId(event) {
 	return (playerChoice = event.target.id); // Assigns the id of weapon clicked to playerChoice
 }
-
 playerArea.addEventListener("click", selectId);
+playerArea.addEventListener("click", computerChoice);
