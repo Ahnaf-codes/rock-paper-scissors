@@ -6,9 +6,16 @@ const paper = document.getElementById("paper");
 const scissors = document.getElementById("scissors");
 const playerArea = document.getElementById("choice-container");
 const weapons = document.querySelectorAll(".choice-img");
-const botChoice = botPlay();
 const roundText = document.getElementById("round");
-
+const popupBg = document.getElementById("popup-bg");
+const popup = document.getElementById("popup");
+const popupTitle = document.getElementById("popup-header");
+const hidePopup = document.getElementById("close");
+const resetPage = document.getElementById("reset");
+const botChoice = botPlay;
+let playerScore = 0;
+let botScore = 0;
+let round = 0;
 //Logic and Dom Stuff
 
 function botPlay() {
@@ -32,8 +39,6 @@ function playerPlay() {
 }
 function game(playerMove, botMove) {
 	const resultText = document.getElementById("result");
-	let playerScore = 0;
-	let botScore = 0;
 	const score = document.getElementById("score");
 
 	if (
@@ -52,6 +57,7 @@ function game(playerMove, botMove) {
 		(playerMove === "paper" && botMove === "rock") ||
 		(playerMove === "rock" && botMove === "scissors")
 	) {
+		function closePopup() {}
 		resultText.textContent = "You win!";
 		playerScore++;
 	}
@@ -61,10 +67,34 @@ function game(playerMove, botMove) {
 }
 
 function countRound() {
-	let round = 0;
 	round++;
 	roundText.textContent = `${round}`;
 	return round;
+}
+
+function openPopup() {
+	if (playerScore === 5 || botScore === 5) {
+		popupBg.style.visibility = "visible";
+		popup.classList.add("open-popup");
+	}
+	if (playerScore === 5) {
+		popupTitle.textContent = "You Destroyed The Bot!";
+	}
+	if (botScore === 5) {
+		popupTitle.textContent = "You Got Schooled By The Bot!";
+	}
+}
+
+function closePopup() {
+	hidePopup.addEventListener("click", () => {
+		popupBg.style.visibility = "hidden";
+	});
+}
+
+function reset() {
+	resetPage.addEventListener("click", () => {
+		window.location.reload();
+	});
 }
 
 function playGame() {
@@ -81,6 +111,9 @@ function playGame() {
 			}
 			countRound();
 			game(playerChoice, botPlay());
+			openPopup();
+			closePopup();
+			reset();
 		});
 	});
 }
