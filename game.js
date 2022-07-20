@@ -88,6 +88,7 @@ function openPopup() {
 function closePopup() {
 	hidePopup.addEventListener("click", () => {
 		popupBg.style.visibility = "hidden";
+		popup.classList.remove("open-popup");
 	});
 }
 
