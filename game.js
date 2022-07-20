@@ -24,11 +24,11 @@ function botPlay() {
 	const botIcon = document.getElementById("bot-icon");
 
 	if (move === "rock") {
-		botIcon.src = "/assets/rock.png";
+		botIcon.src = "assets/rock.png";
 	} else if (move === "paper") {
-		botIcon.src = "/assets/paper.png";
+		botIcon.src = "assets/paper.png";
 	} else if (move === "scissors") {
-		botIcon.src = "/assets/scissors.png";
+		botIcon.src = "assets/scissors.png";
 	}
 	return move;
 }
