@@ -32,10 +32,7 @@ function botPlay() {
 	}
 	return move;
 }
-function playerPlay() {
-	const question = prompt("Rock, Paper or Scissors?");
-	const move = question.toLowerCase();
-	return move;
+
 }
 function game(playerMove, botMove) {
 	const resultText = document.getElementById("result");
