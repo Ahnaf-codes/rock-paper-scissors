@@ -33,7 +33,6 @@ function botPlay() {
 	return move;
 }
 
-}
 function game(playerMove, botMove) {
 	const resultText = document.getElementById("result");
 	const score = document.getElementById("score");
